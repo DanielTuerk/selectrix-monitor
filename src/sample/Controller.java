@@ -38,7 +38,7 @@ public class Controller {
 
     public void railVoltage(ActionEvent actionEvent) {
         try {
-            Selecttrix.getInstance().getDevice().setRailVoltage(btnRailVoltage.isSelected());
+            Selecttrix.getInstance().getDeviceManager().getConnectedDevice().setRailVoltage(btnRailVoltage.isSelected());
         } catch (DeviceAccessException e) {
             e.printStackTrace();
         }

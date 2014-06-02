@@ -7,6 +7,7 @@ import javafx.scene.Scene;
 import javafx.stage.Stage;
 import net.wbz.selecttrix4java.api.bus.AllBusDataConsumer;
 import net.wbz.selecttrix4java.api.device.Device;
+import net.wbz.selecttrix4java.api.device.DeviceAccessException;
 import net.wbz.selecttrix4java.api.device.DeviceConnectionListener;
 
 public class Main extends Application implements DeviceConnectionListener {
@@ -15,7 +16,7 @@ public class Main extends Application implements DeviceConnectionListener {
     public static MonitorFlowPane monitorFlowPane=new MonitorFlowPane();
     @Override
     public void start(Stage primaryStage) throws Exception {
-        Selecttrix.getInstance().getDevice().addDeviceConnectionListener(this);
+        Selecttrix.getInstance().getDeviceManager().addDeviceConnectionListener(this);
 
         Parent root = FXMLLoader.load(getClass().getResource("sample.fxml"));
         primaryStage.setTitle("Selecttrix Monitor");
@@ -32,11 +33,19 @@ public class Main extends Application implements DeviceConnectionListener {
 
     @Override
     public void connected(Device device) {
-        Selecttrix.getInstance().getDevice().getBusDataDispatcher().registerConsumer(monitorFlowPane.getConsumer());
+        try {
+            Selecttrix.getInstance().getDeviceManager().getConnectedDevice().getBusDataDispatcher().registerConsumer(monitorFlowPane.getConsumer());
+        } catch (DeviceAccessException e) {
+            e.printStackTrace();
+        }
     }
 
     @Override
     public void disconnected(Device device) {
-        Selecttrix.getInstance().getDevice().getBusDataDispatcher().unregisterConsumer(monitorFlowPane.getConsumer());
+        try {
+            Selecttrix.getInstance().getDeviceManager().getConnectedDevice().getBusDataDispatcher().unregisterConsumer(monitorFlowPane.getConsumer());
+        } catch (DeviceAccessException e) {
+            e.printStackTrace();
+        }
     }
 }
