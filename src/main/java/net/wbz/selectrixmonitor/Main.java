@@ -6,15 +6,14 @@ import javafx.scene.Parent;
 import javafx.scene.Scene;
 import javafx.stage.Stage;
 import net.wbz.selectrix4java.api.device.Device;
-import net.wbz.selectrix4java.api.bus.AllBusDataConsumer;
-import net.wbz.selectrix4java.api.device.Device;
 import net.wbz.selectrix4java.api.device.DeviceAccessException;
 import net.wbz.selectrix4java.api.device.DeviceConnectionListener;
 
 public class Main extends Application implements DeviceConnectionListener {
 
     //TODO
-    public static MonitorFlowPane monitorFlowPane=new MonitorFlowPane();
+    public static MonitorFlowPane monitorFlowPane = new MonitorFlowPane();
+
     @Override
     public void start(Stage primaryStage) throws Exception {
         Selecttrix.getInstance().getDeviceManager().addDeviceConnectionListener(this);
