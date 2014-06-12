@@ -1,4 +1,4 @@
-package sample;
+package net.wbz.selectrixmonitor;
 
 import javafx.application.Platform;
 import javafx.scene.control.Label;

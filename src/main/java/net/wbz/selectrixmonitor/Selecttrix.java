@@ -1,8 +1,8 @@
-package sample;
+package net.wbz.selectrixmonitor;
 
-import net.wbz.moba.controlcenter.communication.manager.DeviceManager;
-import net.wbz.selecttrix4java.SerialDevice;
-import net.wbz.selecttrix4java.api.device.DeviceAccessException;
+import net.wbz.selectrix4java.SerialDevice;
+import net.wbz.selectrix4java.api.device.DeviceAccessException;
+import net.wbz.selectrix4java.manager.DeviceManager;
 
 /**
  * @author Daniel Tuerk (daniel.tuerk@w-b-z.com)

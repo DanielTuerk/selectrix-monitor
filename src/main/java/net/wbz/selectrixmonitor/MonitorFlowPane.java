@@ -1,9 +1,9 @@
-package sample;
+package net.wbz.selectrixmonitor;
 
 import javafx.scene.control.Label;
 import javafx.scene.layout.FlowPane;
-import net.wbz.selecttrix4java.api.bus.AllBusDataConsumer;
-import net.wbz.selecttrix4java.api.bus.BusDataConsumer;
+import net.wbz.selectrix4java.api.bus.AllBusDataConsumer;
+import net.wbz.selectrix4java.api.bus.BusDataConsumer;
 
 import java.util.HashMap;
 import java.util.Map;

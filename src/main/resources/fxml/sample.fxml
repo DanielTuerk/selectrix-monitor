@@ -1,0 +1,32 @@
+<?import javafx.scene.control.*?>
+<?import javafx.scene.layout.BorderPane?>
+<?import javafx.scene.layout.HBox?>
+<BorderPane fx:controller="net.wbz.selectrixmonitor.Controller"
+            xmlns:fx="http://javafx.com/fxml">
+
+    <top>
+        <HBox>
+            <Label text="Command:"/>
+            <TextField fx:id="txtCommand"/>
+            <Label text="(bus number) (address) (value)"/>
+            <Button text="send" onAction="#send"/>
+            <ToggleButton onAction="#railVoltage" fx:id="btnRailVoltage" text="Rail Voltage"/>
+        </HBox>
+    </top>
+
+    <center>
+        <ScrollPane fx:id="mainPane"/>
+    </center>
+
+    <bottom>
+        <HBox style="-fx-background-color: #96c0dc">
+            <Label text="Device:"/>
+            <TextField fx:id="txtDevice" text="/dev/tty.usbserial-145"/>
+            <Button onAction="#connect" text="connect"/>
+        </HBox>
+    </bottom>
+</BorderPane>
+        <!--<ContentContainer alignment="BASELINE_CENTER">-->
+        <!--<Label>fofo</Label>-->
+        <!--</ContentContainer>-->
+        <!--</GridPane>-->
