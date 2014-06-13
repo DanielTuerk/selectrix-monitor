@@ -7,15 +7,16 @@ import net.wbz.selectrix4java.manager.DeviceManager;
 /**
  * @author Daniel Tuerk (daniel.tuerk@w-b-z.com)
  */
-public class Selecttrix {
+public class Selectrix {
 
     private DeviceManager deviceManager = new DeviceManager();
-    private final static Selecttrix instance = new Selecttrix();
+    private final static Selectrix instance = new Selectrix();
 
-    private Selecttrix() {
+    private Selectrix() {
+        new ConsoleListenerOutput().start(deviceManager);
     }
 
-    public static Selecttrix getInstance() {
+    public static Selectrix getInstance() {
         return instance;
     }
 

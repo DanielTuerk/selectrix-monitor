@@ -16,7 +16,7 @@ public class Main extends Application implements DeviceConnectionListener {
 
     @Override
     public void start(Stage primaryStage) throws Exception {
-        Selecttrix.getInstance().getDeviceManager().addDeviceConnectionListener(this);
+        Selectrix.getInstance().getDeviceManager().addDeviceConnectionListener(this);
 
         Parent root = FXMLLoader.load(getClass().getClassLoader().getResource("fxml/sample.fxml"));
         primaryStage.setTitle("Selectrix Monitor");
@@ -34,7 +34,7 @@ public class Main extends Application implements DeviceConnectionListener {
     @Override
     public void connected(Device device) {
         try {
-            Selecttrix.getInstance().getDeviceManager().getConnectedDevice().getBusDataDispatcher().registerConsumer(monitorFlowPane.getConsumer());
+            Selectrix.getInstance().getDeviceManager().getConnectedDevice().getBusDataDispatcher().registerConsumer(monitorFlowPane.getConsumer());
         } catch (DeviceAccessException e) {
             e.printStackTrace();
         }
@@ -43,7 +43,7 @@ public class Main extends Application implements DeviceConnectionListener {
     @Override
     public void disconnected(Device device) {
         try {
-            Selecttrix.getInstance().getDeviceManager().getConnectedDevice().getBusDataDispatcher().unregisterConsumer(monitorFlowPane.getConsumer());
+            Selectrix.getInstance().getDeviceManager().getConnectedDevice().getBusDataDispatcher().unregisterConsumer(monitorFlowPane.getConsumer());
         } catch (DeviceAccessException e) {
             e.printStackTrace();
         }

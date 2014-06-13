@@ -23,20 +23,20 @@ public class Controller {
 
         String deviceId = txtDevice.getText();
         if (!"".equals(deviceId)) {
-            Selecttrix.getInstance().connect(deviceId);
+            Selectrix.getInstance().connect(deviceId);
         }
     }
 
     public void send(ActionEvent actionEvent) {
         String line = txtCommand.getText();
         String[] parts = line.split(" ");
-        Selecttrix.getInstance().sendDebug(Integer.parseInt(parts[0]),
+        Selectrix.getInstance().sendDebug(Integer.parseInt(parts[0]),
                 (byte) Integer.parseInt(parts[1]), (byte) Integer.parseInt(parts[2]));
     }
 
     public void railVoltage(ActionEvent actionEvent) {
         try {
-            Selecttrix.getInstance().getDeviceManager().getConnectedDevice().setRailVoltage(btnRailVoltage.isSelected());
+            Selectrix.getInstance().getDeviceManager().getConnectedDevice().setRailVoltage(btnRailVoltage.isSelected());
         } catch (DeviceAccessException e) {
             e.printStackTrace();
         }
