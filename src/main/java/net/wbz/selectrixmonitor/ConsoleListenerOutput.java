@@ -28,6 +28,64 @@ public class ConsoleListenerOutput {
             @Override
             public void connected(Device device) {
                 out(device + " connected");
+
+
+        /*
+         * Block
+         */
+                try {
+                    BlockModule blockModule = device.getBlockModule((byte) 10);
+                    blockModule.addBlockListener(new BlockListener() {
+                        @Override
+                        public void blockOccupied(int blockNr) {
+                            out("blockOccupied " + blockNr);
+                        }
+
+                        @Override
+                        public void blockFreed(int blockNr) {
+                            out("blockFreed " + blockNr);
+                        }
+                    });
+                } catch (DeviceAccessException e) {
+                    e.printStackTrace();
+                }
+
+        /*
+         * Train
+         */
+                try {
+                    final byte trainAddress = 3;
+                    TrainModule trainModule = device.getTrainModule(trainAddress);
+                    trainModule.addTrainDataListener(new TrainDataListener() {
+                        @Override
+                        public void drivingLevelChanged(int level) {
+                            out("drivingLevelChanged " + level + " (" + trainAddress + ")");
+                        }
+
+                        @Override
+                        public void drivingDirectionChanged(TrainModule.DRIVING_DIRECTION direction) {
+                            out("drivingDirectionChanged " + direction + " (" + trainAddress + ")");
+                        }
+
+                        @Override
+                        public void functionStateChanged(byte address, int functionBit, boolean state) {
+                            out("functionStateChanged " + address + "," + functionBit + "," + state + "(" + trainAddress + ")");
+                        }
+
+                        @Override
+                        public void lightStateChanged(boolean on) {
+                            out("lightStateChanged " + on + " (" + trainAddress + ")");
+                        }
+
+                        @Override
+                        public void hornStateChanged(boolean on) {
+                            out("hornStateChanged " + on + " (" + trainAddress + ")");
+                        }
+                    });
+                } catch (DeviceAccessException e) {
+                    e.printStackTrace();
+                }
+
             }
 
             @Override
@@ -35,68 +93,12 @@ public class ConsoleListenerOutput {
                 out(device + " disconnected");
             }
         });
-        Device device = deviceManager.registerDevice(DeviceManager.DEVICE_TYPE.COM1, DEVICE_ID, SerialDevice.DEFAULT_BAUD_RATE_FCC);
-        try {
-            device.connect();
-        } catch (DeviceAccessException e) {
-            e.printStackTrace();
-        }
-
-        /*
-         * Block
-         */
-        try {
-            BlockModule blockModule = device.getBlockModule((byte) 10);
-            blockModule.addBlockListener(new BlockListener() {
-                @Override
-                public void blockOccupied(int blockNr) {
-                    out("blockOccupied " + blockNr);
-                }
-
-                @Override
-                public void blockFreed(int blockNr) {
-                    out("blockFreed " + blockNr);
-                }
-            });
-        } catch (DeviceAccessException e) {
-            e.printStackTrace();
-        }
-
-        /*
-         * Train
-         */
-        try {
-            final byte trainAddress = 3;
-            TrainModule trainModule = device.getTrainModule(trainAddress);
-            trainModule.addTrainDataListener(new TrainDataListener() {
-                @Override
-                public void drivingLevelChanged(int level) {
-                    out("drivingLevelChanged " + level + " (" + trainAddress + ")");
-                }
-
-                @Override
-                public void drivingDirectionChanged(TrainModule.DRIVING_DIRECTION direction) {
-                    out("drivingDirectionChanged " + direction + " (" + trainAddress + ")");
-                }
-
-                @Override
-                public void functionStateChanged(byte address, int functionBit, boolean state) {
-                    out("functionStateChanged " + address + "," + functionBit + "," + state + "(" + trainAddress + ")");
-                }
-
-                @Override
-                public void lightStateChanged(boolean on) {
-                    out("lightStateChanged " + on + " (" + trainAddress + ")");
-                }
-
-                @Override
-                public void hornStateChanged(boolean on) {
-                    out("hornStateChanged " + on + " (" + trainAddress + ")");
-                }
-            });
-        } catch (DeviceAccessException e) {
-            e.printStackTrace();
-        }
+//        Device device = deviceManager.registerDevice(DeviceManager.DEVICE_TYPE.COM1, DEVICE_ID, SerialDevice.DEFAULT_BAUD_RATE_FCC);
+//        try {
+//            device.connect();
+//        } catch (DeviceAccessException e) {
+//            e.printStackTrace();
+//        }
 
     }
 

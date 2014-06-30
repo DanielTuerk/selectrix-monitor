@@ -1,9 +1,11 @@
 package net.wbz.selectrixmonitor;
 
 import javafx.application.Application;
+import javafx.fxml.FXML;
 import javafx.fxml.FXMLLoader;
 import javafx.scene.Parent;
 import javafx.scene.Scene;
+import javafx.scene.control.ScrollPane;
 import javafx.stage.Stage;
 import net.wbz.selectrix4java.api.device.Device;
 import net.wbz.selectrix4java.api.device.DeviceAccessException;
@@ -24,6 +26,7 @@ public class Main extends Application implements DeviceConnectionListener {
         monitorFlowPane.prefWidthProperty().bind(primaryStage.widthProperty());
         monitorFlowPane.prefHeightProperty().bind(primaryStage.heightProperty());
         primaryStage.show();
+
     }
 
 
@@ -34,7 +37,10 @@ public class Main extends Application implements DeviceConnectionListener {
     @Override
     public void connected(Device device) {
         try {
-            Selectrix.getInstance().getDeviceManager().getConnectedDevice().getBusDataDispatcher().registerConsumer(monitorFlowPane.getConsumer());
+            Device connectedDevice = Selectrix.getInstance().getDeviceManager().getConnectedDevice();
+            connectedDevice.getBusDataDispatcher().registerConsumer(monitorFlowPane.getConsumer());
+            monitorFlowPane.initData(0, connectedDevice.getBusDataDispatcher().getData(0));
+            monitorFlowPane.initData(1, connectedDevice.getBusDataDispatcher().getData(1));
         } catch (DeviceAccessException e) {
             e.printStackTrace();
         }

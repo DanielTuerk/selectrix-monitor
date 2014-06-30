@@ -30,6 +30,12 @@ public class MonitorFlowPane extends FlowPane {
         }
     }
 
+    public void initData(int bus, byte[] data) {
+        for(int address = 0; address < data.length; address++){
+            addressItemMapping.get(bus).get(address).updateData(data[address]);
+        }
+    }
+
     public BusDataConsumer getConsumer() {
         return new AllBusDataConsumer() {
 

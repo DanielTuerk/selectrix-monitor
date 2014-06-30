@@ -27,7 +27,7 @@ public class BusAddressItemPanel extends HBox {
         Label element = new Label(String.valueOf(address));
         element.setStyle("-fx-background-color: burlywood;");
         getChildren().add(element);
-        for (int i = 1; i < 9; i++) {
+        for (int i = 7; i >= 0; i--) {
             Label lblData = new Label("0");
             getChildren().add(lblData);
             dataLabels.put(i, lblData);
@@ -41,7 +41,7 @@ public class BusAddressItemPanel extends HBox {
             public void run() {
                 // entsprechende UI Komponente updaten
                 BigInteger wrappedData = BigInteger.valueOf(data);
-                for (int i = 1; i < 9; i++) {
+                for (int i = 0; i < 8; i++) {
                     dataLabels.get(i).setText(wrappedData.testBit(i) ? "1" : "0");
                 }
             }

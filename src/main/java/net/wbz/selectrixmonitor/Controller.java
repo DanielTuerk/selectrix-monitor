@@ -20,7 +20,6 @@ public class Controller {
 
     public void connect(ActionEvent actionEvent) {
         mainPane.setContent(Main.monitorFlowPane);
-
         String deviceId = txtDevice.getText();
         if (!"".equals(deviceId)) {
             Selectrix.getInstance().connect(deviceId);
