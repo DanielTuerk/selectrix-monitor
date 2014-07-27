@@ -21,7 +21,7 @@
     <bottom>
         <HBox style="-fx-background-color: #96c0dc">
             <Label text="Device:"/>
-            <TextField fx:id="txtDevice" text="/dev/tty.usbserial-145"/>
+            <TextField fx:id="txtDevice" text="test"/>
             <Button onAction="#connect" text="connect"/>
         </HBox>
     </bottom>

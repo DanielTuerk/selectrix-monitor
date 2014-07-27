@@ -1,6 +1,5 @@
 package net.wbz.selectrixmonitor;
 
-import net.wbz.selectrix4java.SerialDevice;
 import net.wbz.selectrix4java.api.block.BlockListener;
 import net.wbz.selectrix4java.api.block.BlockModule;
 import net.wbz.selectrix4java.api.device.Device;
@@ -15,10 +14,6 @@ import net.wbz.selectrix4java.manager.DeviceManager;
  */
 public class ConsoleListenerOutput {
 
-    public static final String DEVICE_ID = "/dev/tty.usbserial-145";
-
-
-
     public void start(DeviceManager deviceManager) {
 
         /*
@@ -30,9 +25,7 @@ public class ConsoleListenerOutput {
                 out(device + " connected");
 
 
-        /*
-         * Block
-         */
+                // Block
                 try {
                     BlockModule blockModule = device.getBlockModule((byte) 10);
                     blockModule.addBlockListener(new BlockListener() {
@@ -50,9 +43,7 @@ public class ConsoleListenerOutput {
                     e.printStackTrace();
                 }
 
-        /*
-         * Train
-         */
+                // Train
                 try {
                     final byte trainAddress = 3;
                     TrainModule trainModule = device.getTrainModule(trainAddress);
@@ -93,12 +84,6 @@ public class ConsoleListenerOutput {
                 out(device + " disconnected");
             }
         });
-//        Device device = deviceManager.registerDevice(DeviceManager.DEVICE_TYPE.COM1, DEVICE_ID, SerialDevice.DEFAULT_BAUD_RATE_FCC);
-//        try {
-//            device.connect();
-//        } catch (DeviceAccessException e) {
-//            e.printStackTrace();
-//        }
 
     }
 

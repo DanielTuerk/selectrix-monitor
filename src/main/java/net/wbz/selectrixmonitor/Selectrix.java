@@ -23,7 +23,13 @@ public class Selectrix {
     public void connect(String deviceId) {
 
         if(deviceManager.getDeviceById(deviceId)== null) {
-            deviceManager.registerDevice(DeviceManager.DEVICE_TYPE.COM1, deviceId,SerialDevice.DEFAULT_BAUD_RATE_FCC);
+            if("test".equals(deviceId)) {
+                deviceManager.registerDevice(DeviceManager.DEVICE_TYPE.TEST, "test",0);
+
+            }
+            else {
+                deviceManager.registerDevice(DeviceManager.DEVICE_TYPE.SERIAL, deviceId, SerialDevice.DEFAULT_BAUD_RATE_FCC);
+            }
         }
 
         try {

@@ -20,7 +20,7 @@ public class MonitorFlowPane extends FlowPane {
         for (int busNr = 0; busNr < 2; busNr++) {
             getChildren().add(new Label("Bus " + busNr));
             Map<Integer, BusAddressItemPanel> addressItemPanelMap = new HashMap<>();
-            for (int addressNr = 0; addressNr < 128; addressNr++) {
+            for (int addressNr = 0; addressNr < 113; addressNr++) {
                 BusAddressItemPanel itemPanel = new BusAddressItemPanel(busNr, addressNr);
                 addressItemPanelMap.put(addressNr, itemPanel);
                 getChildren().add(itemPanel);
