@@ -25,4 +25,5 @@
             <Button onAction="#connect" text="connect"/>
         </HBox>
     </bottom>
+
 </BorderPane>

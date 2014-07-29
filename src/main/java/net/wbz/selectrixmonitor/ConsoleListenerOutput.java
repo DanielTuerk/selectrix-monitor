@@ -2,6 +2,7 @@ package net.wbz.selectrixmonitor;
 
 import net.wbz.selectrix4java.api.block.BlockListener;
 import net.wbz.selectrix4java.api.block.BlockModule;
+import net.wbz.selectrix4java.api.bus.AllBusDataConsumer;
 import net.wbz.selectrix4java.api.device.Device;
 import net.wbz.selectrix4java.api.device.DeviceAccessException;
 import net.wbz.selectrix4java.api.device.DeviceConnectionListener;
@@ -10,6 +11,8 @@ import net.wbz.selectrix4java.api.train.TrainModule;
 import net.wbz.selectrix4java.manager.DeviceManager;
 
 /**
+ * Only simple console handler to print state changes.
+ *
  * @author Daniel Tuerk (daniel.tuerk@w-b-z.com)
  */
 public class ConsoleListenerOutput {
@@ -22,8 +25,7 @@ public class ConsoleListenerOutput {
         deviceManager.addDeviceConnectionListener(new DeviceConnectionListener() {
             @Override
             public void connected(Device device) {
-                out(device + " connected");
-
+                out(device.getClass().getSimpleName() + " connected");
 
                 // Block
                 try {
@@ -77,6 +79,12 @@ public class ConsoleListenerOutput {
                     e.printStackTrace();
                 }
 
+                device.getBusDataDispatcher().registerConsumer(new AllBusDataConsumer() {
+                    @Override
+                    public void valueChanged(int bus, int address, int value) {
+                        out(String.format("Consumer::valueChanged - bus %d, address %d, value %d", bus, address, value));
+                    }
+                });
             }
 
             @Override

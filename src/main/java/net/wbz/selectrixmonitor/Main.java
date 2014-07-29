@@ -13,7 +13,7 @@ import net.wbz.selectrix4java.api.device.DeviceConnectionListener;
 
 public class Main extends Application implements DeviceConnectionListener {
 
-    //TODO
+    //TODO: ugly
     public static MonitorFlowPane monitorFlowPane = new MonitorFlowPane();
 
     @Override
