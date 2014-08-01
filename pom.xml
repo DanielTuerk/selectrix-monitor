@@ -8,7 +8,7 @@
     <modelVersion>4.0.0</modelVersion>
     <artifactId>selectrix-monitor</artifactId>
     <name>Selectrix Monitor</name>
-    <packaging>pom</packaging>
+    <packaging>jar</packaging>
 
     <developers>
         <developer>
