@@ -1,6 +1,7 @@
 package net.wbz.selectrixmonitor;
 
 import javafx.application.Platform;
+
 import javafx.scene.control.Label;
 import javafx.scene.layout.HBox;
 

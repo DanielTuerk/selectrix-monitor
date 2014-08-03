@@ -7,7 +7,7 @@
     <top>
         <HBox>
             <Label text="Command:"/>
-            <TextField fx:id="txtCommand"/>
+            <TextField fx:id="txtCommand" onKeyPressed="#send2"/>
             <Label text="(bus number) (address) (value)"/>
             <Button text="send" onAction="#send"/>
             <ToggleButton onAction="#railVoltage" fx:id="btnRailVoltage" text="Rail Voltage"/>
@@ -21,7 +21,7 @@
     <bottom>
         <HBox style="-fx-background-color: #96c0dc">
             <Label text="Device:"/>
-            <TextField fx:id="txtDevice" text="test"/>
+            <TextField fx:id="txtDevice"  text="test" onKeyPressed ="#connect2"/>
             <Button onAction="#connect" text="connect"/>
         </HBox>
     </bottom>

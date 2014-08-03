@@ -25,6 +25,7 @@ public class ConsoleListenerOutput {
         deviceManager.addDeviceConnectionListener(new DeviceConnectionListener() {
             @Override
             public void connected(Device device) {
+          
                 out(device.getClass().getSimpleName() + " connected");
 
                 // Block

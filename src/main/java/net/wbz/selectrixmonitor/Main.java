@@ -22,7 +22,7 @@ public class Main extends Application implements DeviceConnectionListener {
 
         Parent root = FXMLLoader.load(getClass().getClassLoader().getResource("fxml/sample.fxml"));
         primaryStage.setTitle("Selectrix Monitor");
-        primaryStage.setScene(new Scene(root, 1100, 800));
+        primaryStage.setScene(new Scene(root, 550, 300));
         monitorFlowPane.prefWidthProperty().bind(primaryStage.widthProperty());
         monitorFlowPane.prefHeightProperty().bind(primaryStage.heightProperty());
         primaryStage.show();
