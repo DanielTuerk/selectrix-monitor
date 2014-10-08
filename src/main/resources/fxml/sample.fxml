@@ -1,27 +1,30 @@
 <?import javafx.scene.control.*?>
 <?import javafx.scene.layout.BorderPane?>
 <?import javafx.scene.layout.HBox?>
+<?import javafx.scene.layout.VBox?>
 <BorderPane fx:controller="net.wbz.selectrixmonitor.Controller"
             xmlns:fx="http://javafx.com/fxml" >
 
     <top>
-        <HBox>
+        <HBox style="-fx-background-color:#a6b5c9;-fx-spacing:10;-fx-padding:8;">
             <Label text="Command:"/>
-            <TextField fx:id="txtCommand" onKeyPressed="#send2"/>
-            <Label text="(bus number) (address) (value)"/>
+            <TextField fx:id="txtCommand" onKeyPressed="#sendEntered"/>
+            <Label text="Bus_number Address Value" style="-fx-border-width:2;-fx-border-style: solid;"/>
             <Button text="send" onAction="#send"/>
             <ToggleButton onAction="#railVoltage" fx:id="btnRailVoltage" text="Rail Voltage"/>
         </HBox>
     </top>
 
     <center>
-        <ScrollPane fx:id="mainPane"/>
-    </center>
+        
+<VBox fx:id="mainPane"/>
+     
+     </center>
 
     <bottom>
-        <HBox style="-fx-background-color: #96c0dc">
+        <HBox style="-fx-background-color:#a6b5c9;-fx-spacing:10;-fx-padding:8;">
             <Label text="Device:"/>
-            <TextField fx:id="txtDevice"  text="test" onKeyPressed ="#connect2"/>
+            <TextField fx:id="txtDevice"  text="test" onKeyPressed ="#connectEntered"/>
             <Button onAction="#connect" text="connect"/>
         </HBox>
     </bottom>
