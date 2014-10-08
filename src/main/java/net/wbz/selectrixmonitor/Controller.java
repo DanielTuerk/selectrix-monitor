@@ -38,7 +38,7 @@ public class Controller {
 		System.out.println("Pressed ..");
 		mainPane.getChildren().add(Main.monitorFlowPane);
 		String deviceId = txtDevice.getText();
-		if (deviceId.isEmpty()) {
+		if (!deviceId.isEmpty()) {
 			Selectrix.getInstance().connect(deviceId);
 		}
 	}

@@ -123,11 +123,9 @@ public class BusAddressItemPanel extends TitledPane {
 
 			@Override
 			public void run() {
-
 				btnData.setStyle("-fx-color: purple");
-
 				try {
-					Thread.sleep(3000);
+					Thread.sleep(1000);
 
 				} catch (InterruptedException e) {
 					// TODO Auto-generated catch block
@@ -147,7 +145,7 @@ public class BusAddressItemPanel extends TitledPane {
 	/**
 	 * Updates the definite components of GUI, nodes (the set of button) of
 	 * Titled Pane
-	 * 
+	 *
 	 * @param data
 	 *            the actual data
 	 */

@@ -16,7 +16,7 @@ import net.wbz.selectrix4java.manager.DeviceManager;
  * @author Daniel Tuerk (daniel.tuerk@w-b-z.com)
  */
 public class ConsoleListenerOutput {
-	
+
     public void start(DeviceManager deviceManager) {
 
         /*
@@ -25,7 +25,7 @@ public class ConsoleListenerOutput {
         deviceManager.addDeviceConnectionListener(new DeviceConnectionListener() {
             @Override
             public void connected(Device device) {
-          
+
                 out(device.getClass().getSimpleName() + " connected");
 
                 // Block
@@ -81,11 +81,11 @@ public class ConsoleListenerOutput {
                 }
 
                 device.getBusDataDispatcher().registerConsumer(new AllBusDataConsumer() {
-                    @Override
-                    public void valueChanged(int bus, int address, int value) {
-                        out(String.format("Consumer::valueChanged - bus %d, address %d, value %d", bus, address, value));
-                       
-                    }
+                  @Override
+                  public void valueChanged(int bus, int address, int oldValue, int newValue)
+                  {
+                    out(String.format("Consumer::valueChanged - bus %d, address %d, oldValue %d newValue %d", bus, address, oldValue, newValue));
+                  }
                 });
             }
 
