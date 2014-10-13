@@ -32,7 +32,7 @@ public class Selectrix {
 
 	private Selectrix() {
 
-		createDevice("device#1");
+//		createDevice("device#1");
 
 		new ConsoleListenerOutput().start(deviceManager);
 		DeviceManager deviceManager = new DeviceManager();
@@ -51,12 +51,12 @@ public class Selectrix {
 
 					}
 				});
-		try {
-			device.connect();
-		} catch (DeviceAccessException e) {
-			// TODO Auto-generated catch block
-			e.printStackTrace();
-		}
+//		try {
+//			device.connect();
+//		} catch (DeviceAccessException e) {
+//			// TODO Auto-generated catch block
+//			e.printStackTrace();
+//		}
 
 	}
 
