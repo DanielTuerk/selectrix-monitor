@@ -106,30 +106,30 @@ public class BusAddressItemPanel extends TitledPane {
      * @param btnData the changed data of a button or buttons
      */
     public synchronized void setFlashColor(final Button btnData) {
-        if (!buttonThreads.contains(btnData)) {
-            buttonThreads.add(btnData);
-            new Thread(new Runnable() {
-
-                @Override
-                public void run() {
-                    btnData.setStyle("-fx-color: purple");
-                    try {
-                        Thread.sleep(1000);
-
-                    } catch (InterruptedException e) {
-                        // TODO Auto-generated catch block
-                        e.printStackTrace();
-                    }
-
-                    btnData.setStyle("-fx-color: #c3c4c4, "
-                            + "linear-gradient(#d6d6d6 50%, white 50%),"
-                            + "radial-gradient(center 50% -40%,radius 50%, #e6e6e6 45%,rgba(230,230,230,0), 50%);"
-                            + "-fx-effect: dropshadow( three-pass-box , rgba(0,0,0,0.6) , 3, 0.0 ,0 , 1)");
-
-                    buttonThreads.remove(btnData);
-                }
-            }).start();
-        }
+//        if (!buttonThreads.contains(btnData)) {
+//            buttonThreads.add(btnData);
+//            new Thread(new Runnable() {
+//
+//                @Override
+//                public void run() {
+//                    btnData.setStyle("-fx-color: purple");
+//                    try {
+//                        Thread.sleep(1000);
+//
+//                    } catch (InterruptedException e) {
+//                        // TODO Auto-generated catch block
+//                        e.printStackTrace();
+//                    }
+//
+//                    btnData.setStyle("-fx-color: #c3c4c4, "
+//                            + "linear-gradient(#d6d6d6 50%, white 50%),"
+//                            + "radial-gradient(center 50% -40%,radius 50%, #e6e6e6 45%,rgba(230,230,230,0), 50%);"
+//                            + "-fx-effect: dropshadow( three-pass-box , rgba(0,0,0,0.6) , 3, 0.0 ,0 , 1)");
+//
+//                    buttonThreads.remove(btnData);
+//                }
+//            }).start();
+//        }
     }
 
     /**

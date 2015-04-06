@@ -80,13 +80,13 @@ public class ConsoleListenerOutput {
                     e.printStackTrace();
                 }
 
-                device.getBusDataDispatcher().registerConsumer(new AllBusDataConsumer() {
-                  @Override
-                  public void valueChanged(int bus, int address, int oldValue, int newValue)
-                  {
-                    out(String.format("Consumer::valueChanged - bus %d, address %d, oldValue %d newValue %d", bus, address, oldValue, newValue));
-                  }
-                });
+//                device.getBusDataDispatcher().registerConsumer(new AllBusDataConsumer() {
+//                  @Override
+//                  public void valueChanged(int bus, int address, int oldValue, int newValue)
+//                  {
+//                    out(String.format("Consumer::valueChanged - bus %d, address %d, oldValue %d newValue %d", bus, address, oldValue, newValue));
+//                  }
+//                });
             }
 
             @Override

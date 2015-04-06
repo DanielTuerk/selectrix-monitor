@@ -105,7 +105,7 @@ public class Selectrix {
 	public void changedValue(int bus, byte address, int bitNr, boolean bitState) {
 		try {
 
-			BusAddress busAddress = device.getBusAddress(bus, address);
+			BusAddress busAddress = deviceManager.getConnectedDevice().getBusAddress(bus, address);
 			if (bitState) {
 				busAddress.setBit(bitNr);
 			} else {
