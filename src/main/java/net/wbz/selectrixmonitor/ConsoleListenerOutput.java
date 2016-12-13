@@ -1,14 +1,14 @@
 package net.wbz.selectrixmonitor;
 
-import net.wbz.selectrix4java.api.block.BlockListener;
-import net.wbz.selectrix4java.api.block.BlockModule;
-import net.wbz.selectrix4java.api.bus.AllBusDataConsumer;
-import net.wbz.selectrix4java.api.device.Device;
-import net.wbz.selectrix4java.api.device.DeviceAccessException;
-import net.wbz.selectrix4java.api.device.DeviceConnectionListener;
-import net.wbz.selectrix4java.api.train.TrainDataListener;
-import net.wbz.selectrix4java.api.train.TrainModule;
-import net.wbz.selectrix4java.manager.DeviceManager;
+
+import net.wbz.selectrix4java.block.BlockListener;
+import net.wbz.selectrix4java.block.BlockModule;
+import net.wbz.selectrix4java.device.Device;
+import net.wbz.selectrix4java.device.DeviceAccessException;
+import net.wbz.selectrix4java.device.DeviceConnectionListener;
+import net.wbz.selectrix4java.device.DeviceManager;
+import net.wbz.selectrix4java.train.TrainDataListener;
+import net.wbz.selectrix4java.train.TrainModule;
 
 /**
  * Only simple console handler to print state changes.

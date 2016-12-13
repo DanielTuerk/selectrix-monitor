@@ -3,7 +3,7 @@
          xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/xsd/maven-4.0.0.xsd">
 
     <groupId>net.wbz</groupId>
-    <version>0.1-SNAPSHOT</version>
+    <version>0.1.1-SNAPSHOT</version>
 
     <modelVersion>4.0.0</modelVersion>
     <artifactId>selectrix-monitor</artifactId>
@@ -42,6 +42,30 @@
                     <mainClass>net.wbz.selectrixmonitor.Main</mainClass>
                 </configuration>
             </plugin>
+
+            <plugin>
+                <groupId>org.apache.maven.plugins</groupId>
+                <artifactId>maven-install-plugin</artifactId>
+                <version>2.5.2</version>
+                <executions>
+                    <execution>
+                        <id>hack-binary</id>
+                        <phase>validate</phase>
+                        <configuration>
+                            <file>${project.basedir}/lib/RXTXcomm.jar</file>
+                            <repositoryLayout>default</repositoryLayout>
+                            <groupId>org.rxtx</groupId>
+                            <artifactId>rxtx</artifactId>
+                            <version>2.2.pre</version>
+                            <packaging>jar</packaging>
+                            <generatePom>true</generatePom>
+                        </configuration>
+                        <goals>
+                            <goal>install-file</goal>
+                        </goals>
+                    </execution>
+                </executions>
+            </plugin>
         </plugins>
     </build>
 
@@ -49,8 +73,8 @@
       
         <dependency>
             <groupId>net.wbz.selectrix4java</groupId>
-            <artifactId>selectrix4java-manager</artifactId>
-            <version>0.2-SNAPSHOT</version>
+            <artifactId>selectrix4java</artifactId>
+            <version>0.3.1-SNAPSHOT</version>
         </dependency>
 
         <dependency>
@@ -107,10 +131,12 @@
             <artifactId>junit</artifactId>
             <version>4.8.1</version>
         </dependency>
+
+        <!-- Serial -->
         <dependency>
-        	<groupId>org.rxtx</groupId>
-        	<artifactId>rxtx</artifactId>
-        	<version>2.1.7</version>
+            <groupId>org.rxtx</groupId>
+            <artifactId>rxtx</artifactId>
+            <version>2.2.pre</version>
         </dependency>
     </dependencies>
 

@@ -5,8 +5,8 @@ import javafx.scene.control.Label;
 import javafx.scene.control.ScrollPane;
 import javafx.scene.control.ScrollPane.ScrollBarPolicy;
 import javafx.scene.layout.*;
-import net.wbz.selectrix4java.api.bus.AllBusDataConsumer;
-import net.wbz.selectrix4java.api.bus.BusDataConsumer;
+import net.wbz.selectrix4java.bus.consumption.AbstractBusDataConsumer;
+import net.wbz.selectrix4java.bus.consumption.AllBusDataConsumer;
 
 import java.util.HashMap;
 import java.util.Map;
@@ -140,7 +140,7 @@ public class MonitorFlowPane extends VBox
     }
   }
 
-  public BusDataConsumer getConsumer()
+  public AbstractBusDataConsumer getConsumer()
   {
     return new AllBusDataConsumer()
     {
