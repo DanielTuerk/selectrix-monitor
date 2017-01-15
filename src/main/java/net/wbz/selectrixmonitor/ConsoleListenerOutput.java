@@ -62,7 +62,7 @@ public class ConsoleListenerOutput {
                         }
 
                         @Override
-                        public void functionStateChanged(byte address, int functionBit, boolean state) {
+                        public void functionStateChanged(int address, int functionBit, boolean state) {
                             out("functionStateChanged " + address + "," + functionBit + "," + state + "(" + trainAddress + ")");
                         }
 
@@ -80,13 +80,6 @@ public class ConsoleListenerOutput {
                     e.printStackTrace();
                 }
 
-//                device.getBusDataDispatcher().registerConsumer(new AllBusDataConsumer() {
-//                  @Override
-//                  public void valueChanged(int bus, int address, int oldValue, int newValue)
-//                  {
-//                    out(String.format("Consumer::valueChanged - bus %d, address %d, oldValue %d newValue %d", bus, address, oldValue, newValue));
-//                  }
-//                });
             }
 
             @Override
